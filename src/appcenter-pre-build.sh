@@ -22,14 +22,16 @@
 #   <key>CFBundleDisplayName</key>
 #   <string>My XF App</string>
 
-echo "##[warning][Pre-Build Action] - Lets do some Pre build transformations..."
+echo "###################"
+echo "##[warning][Pre-Build Action] - UPDATE APP DISPLAY NAME"
+echo "###################"
 
 # Declare local script variables
 SCRIPT_ERROR=0
-echo "##[info][Pre-Build Action] - Looking for files in director $APPCENTER_SOURCE_DIRECTORY"
+echo "##[warning][Pre-Build Action] - Looking for files in director $APPCENTER_SOURCE_DIRECTORY"
 # Define the files to manipulate
 INFO_PLIST_FILE=${APPCENTER_SOURCE_DIRECTORY}/QTask.iOS/Info.plist
-echo "##[info][Pre-Build Action] - Info.plist found at: $INFO_PLIST_FILE"
+echo "##[warning][Pre-Build Action] - Info.plist found at: $INFO_PLIST_FILE"
 
 ANDROID_MAINACTIVITY_FILE=${APPCENTER_SOURCE_DIRECTORY}/QTask.Android/MainActivity.cs
 echo "##[info][Pre-Build Action] - MainActivity found at: $ANDROID_MAINACTIVITY_FILE"
@@ -44,7 +46,7 @@ then
     echo "##[warning][Pre-Build Action] - APP_DISPLAY_NAME variable - OK!"
 fi
 
-if [ -e "${INFO_PLIST_FILE}" ]
+if [ -e "$INFO_PLIST_FILE" ]
 then
     echo "##[warning][Pre-Build Action] - Info.plist file found - OK!"
 else
@@ -52,7 +54,7 @@ else
     let "SCRIPT_ERROR += 1"
 fi
 
-if [ -e "${ANDROID_MAINACTIVITY_FILE}" ]
+if [ -e "$ANDROID_MAINACTIVITY_FILE" ]
 then
     echo "##[warning][Pre-Build Action] - MainActivity file found - OK!"
 else
@@ -71,13 +73,13 @@ else
 fi
 
 ######################## Changes on Android
-if [ -e "${ANDROID_MAINACTIVITY_FILE}" ]
+if [ -e "$ANDROID_MAINACTIVITY_FILE" ]
 then
     echo "##[command][Pre-Build Action] - Changing the App display name on Android to: ${APP_DISPLAY_NAME} "
     sed -i '' "s/Label = \"[-a-zA-Z0-9_ ]*\"/Label = \"${APP_DISPLAY_NAME}\"/" ${ANDROID_MAINACTIVITY_FILE}
 
     echo "##[section][Pre-Build Action] - MainActivity.cs File content:"
-    cat ${ANDROID_MAINACTIVITY_FILE}
+    cat $ANDROID_MAINACTIVITY_FILE
     echo "##[section][Pre-Build Action] - MainActivity.cs EOF"
 fi
 
@@ -93,6 +95,9 @@ then
 fi
 
 
+echo "###################"
+echo "##[warning][Pre-Build Action] - UPDATE VERSION NAME"
+echo "###################"
 #!/usr/bin/env bash
 #
 # For Xamarin Android or iOS, change the version name located in AndroidManifest.xml and Info.plist. 
