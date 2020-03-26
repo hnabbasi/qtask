@@ -26,7 +26,7 @@ echo "##[warning][Pre-Build Action] - Lets do some Pre build transformations..."
 
 # Declare local script variables
 SCRIPT_ERROR=0
-
+echo "##[info][Pre-Build Action] - Looking for files in director $APPCENTER_SOURCE_DIRECTORY"
 # Define the files to manipulate
 INFO_PLIST_FILE=${APPCENTER_SOURCE_DIRECTORY}/QTask.iOS/Info.plist
 ANDROID_MAINACTIVITY_FILE=${APPCENTER_SOURCE_DIRECTORY}/QTask.Droid/MainActivity.cs
