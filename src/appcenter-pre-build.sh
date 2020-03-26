@@ -112,7 +112,15 @@ then
     exit
 fi
 
-FULL_VERSION_NAME = $VERSION_NAME.$APPCENTER_BUILD_ID
+FULL_VERSION_NAME = $"{$VERSION_NAME}.{$APPCENTER_BUILD_ID}"
+
+if [ -e "$ANDROID_MANIFEST_FILE" ]
+then
+    echo "Full version name: $FULL_VERSION_NAME"
+else
+    echo "Full version name could not be generated."
+    exit 1
+fi
 
 if [ -e "$ANDROID_MANIFEST_FILE" ]
 then
