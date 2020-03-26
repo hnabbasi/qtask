@@ -91,7 +91,7 @@ if [ -e "$INFO_PLIST_FILE" ]
 then
     echo "##[command][Pre-Build Action] - Changing the App display name on iOS to: $APP_DISPLAY_NAME "
     plutil -replace CFBundleDisplayName -string "$APP_DISPLAY_NAME" $INFO_PLIST_FILE
-
+    plutil -replace CFBundleName -string "$APP_DISPLAY_NAME" $INFO_PLIST_FILE
     echo "##[section][Pre-Build Action] - Info.plist File content:"
     cat $INFO_PLIST_FILE
     echo "##[section][Pre-Build Action] - Info.plist EOF"
@@ -112,12 +112,12 @@ then
     exit
 fi
 
-$VERSION_NAME = $VERSION_NAME.$APPCENTER_BUILD_ID
+FULL_VERSION_NAME = $VERSION_NAME.$APPCENTER_BUILD_ID
 
 if [ -e "$ANDROID_MANIFEST_FILE" ]
 then
-    echo "Updating version name to $VERSION_NAME in AndroidManifest.xml"
-    sed -i '' 's/versionName="[0-9.]*"/versionName="'$VERSION_NAME'"/' $ANDROID_MANIFEST_FILE
+    echo "Updating version name to $FULL_VERSION_NAME in AndroidManifest.xml"
+    sed -i '' 's/versionName="[0-9.]*"/versionName="'$FULL_VERSION_NAME'"/' $ANDROID_MANIFEST_FILE
 
     echo "File content:"
     cat $ANDROID_MANIFEST_FILE
@@ -126,8 +126,8 @@ fi
 
 if [ -e "$INFO_PLIST_FILE" ]
 then
-    echo "Updating version name to $VERSION_NAME in Info.plist"
-    plutil -replace CFBundleShortVersionString -string $VERSION_NAME $INFO_PLIST_FILE
+    echo "Updating version name to $FULL_VERSION_NAME in Info.plist"
+    plutil -replace CFBundleShortVersionString -string $FULL_VERSION_NAME $INFO_PLIST_FILE
 
     echo "File content:"
     cat $INFO_PLIST_FILE
