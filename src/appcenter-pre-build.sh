@@ -29,7 +29,10 @@ SCRIPT_ERROR=0
 echo "##[info][Pre-Build Action] - Looking for files in director $APPCENTER_SOURCE_DIRECTORY"
 # Define the files to manipulate
 INFO_PLIST_FILE=${APPCENTER_SOURCE_DIRECTORY}/QTask.iOS/Info.plist
-ANDROID_MAINACTIVITY_FILE=${APPCENTER_SOURCE_DIRECTORY}/QTask.Droid/MainActivity.cs
+echo "##[info][Pre-Build Action] - Info.plist found at: $INFO_PLIST_FILE"
+
+ANDROID_MAINACTIVITY_FILE=${APPCENTER_SOURCE_DIRECTORY}/QTask.Android/MainActivity.cs
+echo "##[info][Pre-Build Action] - MainActivity found at: $ANDROID_MAINACTIVITY_FILE"
 
 echo "##[warning][Pre-Build Action] - Checking if all files and environment variables are available..."
 
@@ -38,12 +41,12 @@ then
     echo "##[error][Pre-Build Action] - APP_DISPLAY_NAME variable needs to be defined in App Center!!!"
     let "SCRIPT_ERROR += 1"
     else
-    echo "##[warning][Pre-Build Action] - APP_DISPLAY_NAME variable - oK!"
+    echo "##[warning][Pre-Build Action] - APP_DISPLAY_NAME variable - OK!"
 fi
 
 if [ -e "${INFO_PLIST_FILE}" ]
 then
-    echo "##[warning][Pre-Build Action] - Info.plist file found - oK!"
+    echo "##[warning][Pre-Build Action] - Info.plist file found - OK!"
 else
     echo "##[error][Pre-Build Action] - Info.plist file not found!"
     let "SCRIPT_ERROR += 1"
@@ -51,7 +54,7 @@ fi
 
 if [ -e "${ANDROID_MAINACTIVITY_FILE}" ]
 then
-    echo "##[warning][Pre-Build Action] - MainActivity file found - oK!"
+    echo "##[warning][Pre-Build Action] - MainActivity file found - OK!"
 else
     echo "##[error][Pre-Build Action] - MainActivity file not found!"
     let "SCRIPT_ERROR += 1"
@@ -63,11 +66,9 @@ then
     echo "##[error][Pre-Build Action] - Fix them and try again..."
     exit 1 # this will kill the build
     # exit # this will exit this script, but continues building
-    else
+else
+    echo "##[warning][Pre-Build Action] - Now everything is checked, lets change the app display name on iOS and Android..."
 fi
-
-echo "##[warning][Pre-Build Action] - There are ${SCRIPT_ERROR} errors."
-echo "##[warning][Pre-Build Action] - Now everything is checked, lets change the app display name on iOS and Android..."
 
 ######################## Changes on Android
 if [ -e "${ANDROID_MAINACTIVITY_FILE}" ]
