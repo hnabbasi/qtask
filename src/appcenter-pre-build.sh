@@ -114,7 +114,7 @@ fi
 
 FULL_VERSION_NAME="$VERSION_NAME.$APPCENTER_BUILD_ID"
 
-if [ -e ${FULL_VERSION_NAME} ]
+if [ -z ${FULL_VERSION_NAME} ]
 then
     echo "Full version name: $FULL_VERSION_NAME"
 else
