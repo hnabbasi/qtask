@@ -13,9 +13,6 @@
             <Color x:Key="Primary">#4CAF50</Color>
             <Color x:Key="Accent">#FF9800</Color>
 
-            <Style TargetType="ContentPage">
-                <Setter Property="BackgroundColor" Value="#4CAF50"/>
-            </Style>
             <Style TargetType="Frame">
                 <Setter Property="BackgroundColor" Value="White"/>
             </Style>
@@ -33,6 +30,10 @@
                 <Setter Property="Shape" Value="Circle"/>
                 <Setter Property="OutlineColor" Value="{StaticResource Accent}"/>
                 <Setter Property="FillColor" Value="{StaticResource Accent}"/>
+            </Style>
+            <Style x:Key="LightText" TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="Large"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -96,6 +96,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon-dev.appiconset\Icon-120 dev.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon-local.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIcon-local.appiconset\icon-local.png" />
+    <ImageAsset Include="Assets.xcassets\baseline_more_vert_white_36pt.xcassets\more.imageset\baseline_more_vert_white_36pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\baseline_more_vert_white_36pt.xcassets\more.imageset\baseline_more_vert_white_36pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\baseline_more_vert_white_36pt.xcassets\more.imageset\baseline_more_vert_white_36pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\baseline_more_vert_white_36pt.xcassets\more.imageset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -121,5 +125,6 @@
     <Folder Include="Assets.xcassets\AppIcon-dev.appiconset\" />
     <Folder Include="Renderer\" />
     <Folder Include="Assets.xcassets\AppIcon-local.appiconset\" />
+    <Folder Include="Assets.xcassets\baseline_more_vert_white_36pt.xcassets\more.imageset\" />
   </ItemGroup>
 </Project>

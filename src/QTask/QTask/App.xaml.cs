@@ -5,6 +5,8 @@ using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
 using QTask.Views;
+using Xamarin.Essentials.Interfaces;
+using Xamarin.Essentials.Implementation;
 
 namespace QTask
 {
@@ -24,6 +26,7 @@ namespace QTask
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.Register<IAppInfo, AppInfoImplementation>();
         }
     }
 }
