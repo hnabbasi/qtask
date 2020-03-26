@@ -23,18 +23,21 @@
 #   <string>My XF App</string>
 
 echo "###################"
-echo "##[warning][Pre-Build Action] - UPDATE APP DISPLAY NAME"
+echo "##[Pre-Build Action] - UPDATE APP DISPLAY NAME"
 echo "###################"
 
 # Declare local script variables
 SCRIPT_ERROR=0
 echo "##[warning][Pre-Build Action] - Looking for files in director $APPCENTER_SOURCE_DIRECTORY"
 # Define the files to manipulate
-INFO_PLIST_FILE=${APPCENTER_SOURCE_DIRECTORY}/QTask.iOS/Info.plist
+INFO_PLIST_FILE=${APPCENTER_SOURCE_DIRECTORY}/src/QTask.iOS/Info.plist
 echo "##[warning][Pre-Build Action] - Info.plist found at: $INFO_PLIST_FILE"
 
-ANDROID_MAINACTIVITY_FILE=${APPCENTER_SOURCE_DIRECTORY}/QTask.Android/MainActivity.cs
-echo "##[info][Pre-Build Action] - MainActivity found at: $ANDROID_MAINACTIVITY_FILE"
+ANDROID_MANIFEST_FILE=$APPCENTER_SOURCE_DIRECTORY/src/QTask.Droid/Properties/AndroidManifest.xml
+echo "##[warning][Pre-Build Action] - AndroidManifest found at: $ANDROID_MANIFEST_FILE"
+
+ANDROID_MAINACTIVITY_FILE=${APPCENTER_SOURCE_DIRECTORY}/src/QTask.Android/MainActivity.cs
+echo "##[warning][Pre-Build Action] - MainActivity found at: $ANDROID_MAINACTIVITY_FILE"
 
 echo "##[warning][Pre-Build Action] - Checking if all files and environment variables are available..."
 
@@ -96,7 +99,7 @@ fi
 
 
 echo "###################"
-echo "##[warning][Pre-Build Action] - UPDATE VERSION NAME"
+echo "##[Pre-Build Action] - UPDATE VERSION NAME"
 echo "###################"
 #!/usr/bin/env bash
 #
@@ -110,9 +113,6 @@ then
 fi
 
 $VERSION_NAME = $VERSION_NAME.$APPCENTER_BUILD_ID
-
-ANDROID_MANIFEST_FILE=$APPCENTER_SOURCE_DIRECTORY/QTask.Droid/Properties/AndroidManifest.xml
-INFO_PLIST_FILE=$APPCENTER_SOURCE_DIRECTORY/QTask.iOS/Info.plist
 
 if [ -e "$ANDROID_MANIFEST_FILE" ]
 then
