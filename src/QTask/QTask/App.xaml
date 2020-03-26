@@ -1,5 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="QTask.App">
+<prism:PrismApplication
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+    xmlns:ia="clr-namespace:IntelliAbb.Xamarin.Controls;assembly=IntelliAbb.Xamarin.Controls"
+    mc:Ignorable="d"
+    x:Class="QTask.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#4CAF50</Color>
+            <Color x:Key="Accent">#FF9800</Color>
+
+            <Style TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+            </Style>
+            <Style TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}"/>
+                <Setter Property="BarTextColor" Value="White"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Accent}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
+            <Style TargetType="ia:Checkbox">
+                <Setter Property="Shape" Value="Circle"/>
+                <Setter Property="OutlineColor" Value="{StaticResource Accent}"/>
+                <Setter Property="FillColor" Value="{StaticResource Accent}"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
-</Application>
+</prism:PrismApplication>
