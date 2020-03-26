@@ -112,12 +112,13 @@ then
     exit
 fi
 
-FULL_VERSION_NAME = $"{$VERSION_NAME}.{$APPCENTER_BUILD_ID}"
+FULL_VERSION_NAME = "$VERSION_NAME.$APPCENTER_BUILD_ID"
 
-if [ -e "$ANDROID_MANIFEST_FILE" ]
+if [ -e "$FULL_VERSION_NAME" ]
 then
     echo "Full version name: $FULL_VERSION_NAME"
 else
+    echo "Full version name: $FULL_VERSION_NAME"
     echo "Full version name could not be generated."
     exit 1
 fi
@@ -136,6 +137,25 @@ if [ -e "$INFO_PLIST_FILE" ]
 then
     echo "Updating version name to $FULL_VERSION_NAME in Info.plist"
     plutil -replace CFBundleShortVersionString -string $FULL_VERSION_NAME $INFO_PLIST_FILE
+
+    echo "File content:"
+    cat $INFO_PLIST_FILE
+fi
+
+echo "###################"
+echo "##[Pre-Build Action] - UPDATE APP ICON"
+echo "###################"
+
+if [ -z "$APP_ICON" ]
+then
+    echo "You need to defince APP_ICON variable in App Center"
+    exit
+fi
+
+if [ -e "$INFO_PLIST_FILE" ]
+then
+    echo "Updating version name to $FULL_VERSION_NAME in Info.plist"
+    plutil -replace XSAppIconAssets -string "Assets.xcassets/$APP_ICON.appiconset" $INFO_PLIST_FILE
 
     echo "File content:"
     cat $INFO_PLIST_FILE
