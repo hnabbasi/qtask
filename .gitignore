@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+src/QTask/QTask.Android/.DS_Store
+src/QTask/QTask.Android/Assets/AboutAssets.txt
+src/QTask/QTask.Android/Resources/.DS_Store
