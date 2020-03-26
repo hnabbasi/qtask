@@ -10,6 +10,7 @@
                      Spacing="20">
             <Label Text="{Binding AppName}"
                    HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"
                    Style="{StaticResource LightText}"/>
             <Label Text="{Binding AppVersion}"
                    HorizontalTextAlignment="Center"

@@ -17,8 +17,12 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Margin="10" Text="Lets finish our tasks for the day" HorizontalTextAlignment="Center" TextColor="White"/>
-        <Frame Grid.Row="1" HasShadow="False" CornerRadius="20" Margin="20, 20, 20, 5">
+        <Label Margin="20,20,20,5"
+               Text="Lets finish our tasks for the day"
+               HorizontalTextAlignment="Center"
+               TextColor="White"
+               VerticalOptions="Center"/>
+        <Frame Grid.Row="1" HasShadow="False" CornerRadius="20" Margin="20, 10, 20, 5">
             <ScrollView>
                 <StackLayout BindableLayout.ItemsSource="{Binding Tasks}">
                     <BindableLayout.ItemTemplate>
@@ -30,8 +34,9 @@
                                                     VerticalOptions="Center"
                                                     HorizontalOptions="Center"/>
                                 <Label Text="{Binding Title}"
-                                        HorizontalOptions="FillAndExpand"
-                                        VerticalOptions="Center"/>
+                                       FontSize="Large"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="Center"/>
                             </StackLayout>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
