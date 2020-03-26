@@ -112,7 +112,7 @@ then
     exit
 fi
 
-FULL_VERSION_NAME = "$VERSION_NAME.$APPCENTER_BUILD_ID"
+FULL_VERSION_NAME = $VERSION_NAME.$APPCENTER_BUILD_ID
 
 if [ -e "$FULL_VERSION_NAME" ]
 then
@@ -154,7 +154,7 @@ fi
 
 if [ -e "$INFO_PLIST_FILE" ]
 then
-    echo "Updating version name to $FULL_VERSION_NAME in Info.plist"
+    echo "Updating app icon to $APP_ICON in Info.plist"
     plutil -replace XSAppIconAssets -string "Assets.xcassets/$APP_ICON.appiconset" $INFO_PLIST_FILE
 
     echo "File content:"
