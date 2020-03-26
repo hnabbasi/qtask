@@ -353,3 +353,4 @@ src/QTask/QTask.Android/Assets/AboutAssets.txt
 src/QTask/QTask.Android/Resources/.DS_Store
 src/QTask/QTask.Android/Resources/Resource.designer.cs
 src/QTask/QTask.Android/Resources/Resource.designer.cs
+.DS_Store
