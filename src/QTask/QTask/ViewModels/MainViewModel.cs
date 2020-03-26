@@ -24,7 +24,7 @@ namespace QTask.ViewModels
             Debug.WriteLine("Dairy completed");
         }
 
-        private void GetTasks()
+        internal void GetTasks()
         {
             Tasks = new List<TaskItem>
             {
