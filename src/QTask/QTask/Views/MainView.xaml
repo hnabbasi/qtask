@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ia="clr-namespace:IntelliAbb.Xamarin.Controls;assembly=IntelliAbb.Xamarin.Controls"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="QTask.Views.MainView"
+             Title="{Binding Title}"
+             BackgroundColor="{DynamicResource Primary}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="more" Command="{prism:NavigateTo AboutView}"/>
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Margin="10" Text="Lets finish our tasks for the day" HorizontalTextAlignment="Center" TextColor="White"/>
+        <Frame Grid.Row="1" HasShadow="False" CornerRadius="20" Margin="20, 20, 20, 5">
+            <ScrollView>
+                <StackLayout BindableLayout.ItemsSource="{Binding Tasks}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal"
+                                         Margin="10"
+                                         Spacing="20">
+                                <ia:Checkbox IsChecked="{Binding IsCompleted}"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"/>
+                                <Label Text="{Binding Title}"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="Center"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+        <StackLayout Grid.Row="2" Orientation="Horizontal"
+                        Margin="40, 10"
+                        Spacing="20">
+            <ia:Checkbox OutlineColor="White"
+                         FillColor="White"
+                         CheckColor="#4CAF50"
+                         VerticalOptions="Center"
+                         HorizontalOptions="Center"/>
+            <Label Text="Mark all completed"
+                   TextColor="White"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Center"/>
+        </StackLayout>
+        <Button Grid.Row="3" Text="Add a task" TextColor="#4CAF50" BackgroundColor="White" Command="{Binding CompleteCommand}" Margin="20, 10, 20, 5"/>
+        <Button Grid.Row="4" Text="Complete Entry" Command="{Binding CompleteCommand}" Margin="20, 5, 20, 20"/>
+    </Grid>
+</ContentPage>

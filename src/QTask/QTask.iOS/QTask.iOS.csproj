@@ -26,6 +26,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -35,6 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,7 +60,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
@@ -67,6 +69,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderer\NavigationPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -93,6 +96,12 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-1024.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon-dev.appiconset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\AppIcon-dev.appiconset\Icon-120 dev.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-local.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon-local.appiconset\icon-local.png" />
+    <ImageAsset Include="Assets.xcassets\baseline_more_vert_white_36pt.xcassets\more.imageset\baseline_more_vert_white_36pt_1x.png" />
+    <ImageAsset Include="Assets.xcassets\baseline_more_vert_white_36pt.xcassets\more.imageset\baseline_more_vert_white_36pt_2x.png" />
+    <ImageAsset Include="Assets.xcassets\baseline_more_vert_white_36pt.xcassets\more.imageset\baseline_more_vert_white_36pt_3x.png" />
+    <ImageAsset Include="Assets.xcassets\baseline_more_vert_white_36pt.xcassets\more.imageset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -116,5 +125,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\AppIcon-dev.appiconset\" />
+    <Folder Include="Renderer\" />
+    <Folder Include="Assets.xcassets\AppIcon-local.appiconset\" />
+    <Folder Include="Assets.xcassets\baseline_more_vert_white_36pt.xcassets\more.imageset\" />
   </ItemGroup>
 </Project>
