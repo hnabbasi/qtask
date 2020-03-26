@@ -112,7 +112,10 @@ then
     exit
 fi
 
-FULL_VERSION_NAME = $VERSION_NAME.$APPCENTER_BUILD_ID
+echo "Version name from variable: $VERSION_NAME"
+echo "Build ID from env. variable: $APPCENTER_BUILD_ID"
+
+FULL_VERSION_NAME = {$VERSION_NAME}.{$APPCENTER_BUILD_ID}
 
 if [ -e "$FULL_VERSION_NAME" ]
 then
